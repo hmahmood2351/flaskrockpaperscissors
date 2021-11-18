@@ -2,6 +2,7 @@ from markupsafe import Markup
 from application import app, db
 from application.models import Winlose
 import random
+from flask import render_template
 
 @app.route('/home')
 def home():
@@ -11,7 +12,17 @@ def home():
     msg.append("Play the game: /game/'MOVE' ")
     msg.append("Delete an entry in the database: /game/delete.'NUMBER'")
     msg.append("Return the number of matches in the database: /game/count")
+    msg.append("Access the index.html file: /home/layout")
+    msg.append("Access the squid.html file: /home/squid")
     return Markup("<br>".join(msg))
+
+@app.route('/home/layout')
+def homelayout():
+    return render_template('layout.html')
+
+@app.route('/home/squid')
+def homesquid():
+    return render_template('squid.html')
 
 @app.route('/game/viewresults')
 def viewresults():

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<p>Extending from layout.html</p>
+<p>This is the squid endpoint.</p>
+<p>Running Python code here:</p>
+
+{% for user in ["ben", "harry", "bob", "jay", "matt", "bill"] %}
+{% if 'b' in user %}
+<p>The user {{ user }} has the letter 'b' in it.</p>
+{% endif %}
+{% endfor %}
+{% endblock body %}
